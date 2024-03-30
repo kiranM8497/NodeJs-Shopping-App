@@ -1,0 +1,278 @@
+.shop_header {
+  height: 15%;
+  background-color: aqua;
+
+}
+
+.shop_itemList {
+  display: flex;
+  margin-left: 1rem;
+  justify-content: left;
+  align-items: center;
+  font-size: larger;
+}
+
+.shop_item {
+  list-style: none;
+  padding: 0.5rem;
+  font-weight: 800;
+  cursor: pointer;
+  padding-top: 1.5rem;
+
+}
+
+.shop_item a {
+  text-decoration: none;
+}
+
+
+.shop_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.shop_heading {
+  font-size: 40px;
+  color: black;
+  font-family: sans-serif;
+  margin-top: 1rem;
+
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 1;
+
+}
+
+
+
+.details-main {
+  padding: 1rem;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+
+
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+  width: 20%;
+  /* min-width: 20% !important;
+  max-width: 25% !important */
+}
+
+.details-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+}
+
+.shop_main {
+  padding: 1rem;
+  margin: auto;
+}
+
+.centered {
+  text-align: center;
+}
+
+.card_header,
+.card_content {
+  padding: 1rem;
+}
+
+
+.card_header h1,
+.card_content h1,
+.card_content h2,
+.card_content p {
+  margin: 0;
+  text-align: center;
+
+}
+
+.card_image {
+  width: 100%;
+  /* Adjust the width of the card as needed */
+  padding: 10px;
+}
+
+.card_image img {
+  width: 100%;
+  /* Set image width to 100% of its container */
+  aspect-ratio: 1 /1;
+  /* Set aspect ratio to 16:9 (or any desired aspect ratio) */
+  object-fit: fill;
+  /* Ensure the image covers the container, cropping if necessary */
+}
+
+.card_actions {
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+/* for admin buttons */
+.btns {
+  margin-left: 1rem !important;
+}
+
+.card_actions button,
+.card_actions a {
+  margin: 0 0.25rem;
+}
+
+
+
+.btn {
+  font: inherit;
+  border: 1px solid #00695c;
+  color: #00695c;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 3px;
+
+}
+
+.edit a {
+  display: block;
+  width: 4rem !important;
+}
+
+.deletebtn {
+  width: 4rem !important;
+
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #00695c;
+  color: white;
+}
+
+
+
+.cart-main {
+  width: 100vw;
+}
+
+.listcontainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.cart-list-item {
+  display: flex;
+  width: 450px !important;
+  height: fit-content;
+  border: 1px solid gray;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 1.5rem 0;
+
+}
+
+.item-info {
+  width: 75% !important;
+
+}
+
+.cartdeletebtn {
+  width: 25% !important;
+  text-align: center;
+  margin-left: 2rem;
+  margin-right: 1rem;
+
+}
+
+.cartdeletebtn button {
+  border: red 2px solid !important;
+  padding-bottom: 2px !important;
+  color: red !important;
+  height: 25px;
+
+}
+
+.cartbtn:active,
+.cartbtn:hover {
+  background: white;
+}
+
+
+/* orders */
+
+
+.main-c {
+  height: 100vh;
+  max-width: 80% !important;
+}
+
+.order-container {
+  max-width: 80%;
+  height: 50%;
+  padding: 0;
+  text-align: center;
+  margin-top: 1rem;
+
+}
+
+.order-id {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.2rem !important;
+
+}
+
+.list-container {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  margin: 1rem 1rem;
+
+  border: 1.5px gray solid;
+
+}
+
+.list-container>p {
+  font-size: medium;
+}
+
+.order-id>p {
+  display: flex;
+  height: 10%;
+  font-size: x-small !important;
+  color: darkgray;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-container {
+  width: 100%;
+
+
+}
+
+.inner-container img {
+  width: 70%;
+  aspect-ratio: 1/1;
+  object-fit: fill;
+
+}

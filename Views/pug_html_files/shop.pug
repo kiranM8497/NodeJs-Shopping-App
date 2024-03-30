@@ -1,0 +1,23 @@
+extends layouts/main-layout.pug 
+   
+block styles 
+    link(rel="stylesheet", href="/css/product.css")
+   
+block content
+      main.shop_main 
+        if products.length > 0
+          .grid  
+            each product in  products
+              article.card.product-item 
+                header.card_header 
+                  h1.product_title  #{product.title}    
+                .card_image 
+                  img(src="https://cdn.pixabay.com/photo/2018/01/17/18/43/book-3088775_1280.jpg", alt="image")  
+                .card_content 
+                  h2.product_price $19.99
+                  p.product_description  A very intresting Book
+                .card_actions 
+                  button.btn Add to Cart        
+
+        else 
+            h1 No products                  

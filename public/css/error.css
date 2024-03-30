@@ -1,0 +1,14 @@
+main {
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+main h1 {
+  font-family: 'Times New Roman', Times, serif;
+  color: darkred;
+  font-size: 52px;
+}

@@ -1,0 +1,52 @@
+<%- include("../includes/head.ejs") %>
+  <link rel="stylesheet" href="/css/main.css">
+  </head>
+
+  <body>
+
+    <%- include("../includes/navigation.ejs") %>
+
+      <main class="shop_main">
+        <% if (products.length> 0 ) { %>
+          <div class="grid">
+            <% for(let product of products) { %>
+              <article class="card product-item">
+                <header class="card_header">
+                  <h1 class="product_title">
+                    <%= product.title %>
+                  </h1>
+                </header>
+                <div class="card_image">
+                  <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                </div>
+                <div class="card_content product_price">
+                  <h2>
+                    ₹&nbsp;<%= product.price %>
+                  </h2>
+                  <%= product.description %>
+                    <p></p>
+                </div>
+
+                <div class="card_actions btns">
+                  <div class="edit">
+                    <a class="btn" href="/admin/edit-product/<%= product._id %>?edit=true">Edit</a>
+                  </div>
+                  <div>
+                    <form action="/admin/delete-product" method="POST">
+                      <input type="hidden" value="<%=product._id%>" name="productId" />
+                      <button class="btn deletebtn" type="submit">Delete</button>
+                    </form>
+                  </div>
+                </div>
+              </article>
+              <% } %>
+          </div>
+          <% } else { %>
+            <h1>No products found 🤨</h1>
+            <% } %>
+
+      </main>
+
+
+
+      <%- include("../includes/end.ejs")%>

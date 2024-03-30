@@ -1,0 +1,30 @@
+[
+  {
+    "id": "123",
+    "title": "Finding the Oasis",
+    "imageUrl": "https://m.media-amazon.com/images/I/71y0ezaS2KL._UX250_.jpg   ",
+    "description": "Unveiling the Intersection of Mind, Body and Spirit..amazing",
+    "price": "420"
+  },
+  {
+    "id": "124",
+    "title": "Who Will Cry When You Die?",
+    "imageUrl": "https://m.media-amazon.com/images/I/71yu8CAKbgL._SY466_.jpg",
+    "description": "Life Lessons From The Monk Who Sold His Ferrari",
+    "price": "241"
+  },
+  {
+    "id": "0.6374922677261576",
+    "title": "Apple iPad (9th Generation)",
+    "imageUrl": "https://m.media-amazon.com/images/I/61NGnpjoRDL._SX679_.jpg",
+    "description": "with A13 Bionic chip, 25.91 cm (10.2″) Retina Display, 64GB, Wi-Fi, 12MP front/8MP Back Camera, Touch ID, All-Day Battery Life – Space Grey",
+    "price": "30600"
+  },
+  {
+    "id": "0.9489253396003203",
+    "title": "Redmi 12 5G ",
+    "imageUrl": "https://m.media-amazon.com/images/I/71tCOhEigtL._SX679_.jpg",
+    "description": "Jade Black 4GB RAM 128GB ROM",
+    "price": "12000"
+  }
+]
