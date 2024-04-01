@@ -48,6 +48,19 @@ userSchema.methods.addToCart = function (product) {
   return this.save();
 };
 
+userSchema.methods.deleteFromCart = function (productId) {
+  const updatedCartItems = this.cart.items.filter((i) => {
+    return i.productId.toString() !== productId.toString();
+  });
+  this.cart.items = updatedCartItems;
+  return this.save();
+};
+
+userSchema.methods.clearCart = function () {
+  this.cart = { items: [] };
+  return this.save();
+};
+
 export default mongoose.model("User", userSchema);
 
 // import { mongoConnect, getDb } from "../utils/mongo_database.js";
@@ -96,30 +109,30 @@ export default mongoose.model("User", userSchema);
 //         { $set: { cart: updatedCart } }
 //       );
 
-//     // // const updatedCartItems =[...this.cart.items];
-//     // const updatedCartItems = [...this.cart.items];
-//     // console.log("hprinting updated cart", updatedCartItems);
-//     // //if item allready exists
-//     // if (cartProductIndex >= 0) {
-//     //   console.log("inside if where checking cart is xero ornot");
+// const updatedCartItems =[...this.cart.items];
+// const updatedCartItems = [...this.cart.items];
+// console.log("hprinting updated cart", updatedCartItems);
+//if item allready exists
+// if (cartProductIndex >= 0) {
+//   console.log("inside if where checking cart is xero ornot");
 
-//     //   newQuantity = this.cart.items[cartProductIndex].quantity + 1;
-//     //   updatedCartItems[cartProductIndex].quantity = newQuantity;
-//     // } else {
-//     //   updatedCartItems.push({
-//     //     productId: new ObjectId(product._id),
-//     //     quantity: newQuantity,
-//     //   });
-//     // }
-//     // const updatedCart = {
-//     //   items: updatedCartItems,
-//     // };
-//     // return db
-//     //   .collection("users")
-//     //   .updateOne(
-//     //     { _id: new ObjectId(this._id) },
-//     //     { $set: { cart: updatedCart } }
-//     //   );
+//   newQuantity = this.cart.items[cartProductIndex].quantity + 1;
+//   updatedCartItems[cartProductIndex].quantity = newQuantity;
+// } else {
+//   updatedCartItems.push({
+//     productId: new ObjectId(product._id),
+//     quantity: newQuantity,
+//   });
+// }
+// const updatedCart = {
+//   items: updatedCartItems,
+// };
+// return db
+//   .collection("users")
+//   .updateOne(
+//     { _id: new ObjectId(this._id) },
+//     { $set: { cart: updatedCart } }
+//   );
 //   }
 
 //   deleteFromCart(productId) {

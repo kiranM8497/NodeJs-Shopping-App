@@ -222,15 +222,25 @@
 
 .main-c {
   height: 100vh;
-  max-width: 80% !important;
+  max-width: 500px;
 }
 
 .order-container {
-  max-width: 80%;
-  height: 50%;
+  max-width: 100%;
   padding: 0;
   text-align: center;
   margin-top: 1rem;
+
+}
+
+.order-container ul {
+
+  display: flex;
+
+}
+
+.order-container ul li {
+  list-style: none;
 
 }
 
@@ -242,7 +252,7 @@
 }
 
 .list-container {
-  width: 100%;
+  width: 350px;
   height: 100%;
   display: inline-block;
   margin: 1rem 1rem;
@@ -265,9 +275,20 @@
 }
 
 .inner-container {
-  width: 100%;
+  width: full;
+  height: 270px;
+
+}
 
 
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info>* {
+  height: 100%;
 }
 
 .inner-container img {

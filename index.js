@@ -6,6 +6,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import { router } from "./routes/admin.js";
+import { authRoutes } from "./routes/auth.js";
 import { handleError } from "./Controllers/error.js";
 import User from "./models/user.js";
 
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
     .catch((err) => console.log(err)); // 1 is the id of admin user
 });
 
+app.use(authRoutes);
 app.use(`/admin`, router);
 app.use(shopRoutes);
 

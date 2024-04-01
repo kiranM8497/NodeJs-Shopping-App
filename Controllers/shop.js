@@ -1,9 +1,9 @@
+import Order from "../models/order.js";
 import Product from "../models/product.js";
 
 const fetchProducts = (req, res, next) => {
   Product.find()
     .then((products) => {
-      console.log(products);
       res.render("shop/product-list", {
         products: products,
         title: "All products",
@@ -41,9 +41,10 @@ const getIndexPage = (req, res, next) => {
 
 const getCartDetails = (req, res, next) => {
   req.user
-    .getCart()
-    .then((products) => {
-      // console.log("here are cartdetails", cartDetails);
+    .populate("cart.items.productId")
+    .then((user) => {
+      // console.log("here is ", user.cart.items);
+      const products = user.cart.items;
       res.render("shop/cart", {
         path: "/cart",
         title: "Your Cart",
@@ -60,7 +61,6 @@ const postCart = (req, res, next) => {
       return req.user.addToCart(product);
     })
     .then((result) => {
-      console.log(result);
       res.redirect("/cart");
     });
 };
@@ -77,9 +77,28 @@ const deleteProductFromCart = (req, res, next) => {
 
 const postOrder = (req, res, next) => {
   req.user
-    .addOrder()
+    .populate("cart.items.productId")
+    .then((user) => {
+      console.log(user.cart.items);
+      const products = user.cart.items.map((i) => {
+        return {
+          quantity: i.quantity,
+          product: { ...i.productId._doc },
+        };
+      });
+      const order = new Order({
+        user: {
+          name: req.user.name,
+          userId: req.user,
+        },
+        products: products,
+      });
+      return order.save();
+    })
     .then((result) => {
-      console.log("i m here");
+      return req.user.clearCart();
+    })
+    .then((result) => {
       res.redirect("/orders");
     })
     .catch((err) => console.log(err));
@@ -88,9 +107,9 @@ const postOrder = (req, res, next) => {
 //get access to the products in the cart
 
 const getOrderDetails = (req, res, next) => {
-  req.user
-    .getOrders()
+  Order.find({ "user.userId": req.user._id })
     .then((orders) => {
+      console.log("here are orders", orders);
       res.render("shop/orders", {
         path: "/orders",
         title: "Your Orders",

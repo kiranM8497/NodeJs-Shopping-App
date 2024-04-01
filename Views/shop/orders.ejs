@@ -21,29 +21,27 @@
                       </div>
 
                       <ul>
-                        <% order.items.forEach(product=> { %>
+                        <% order.products.forEach(p=> { %>
                           <div class="inner-container">
                             <li>
-                              <div>
-
-
+                              <div class="info">
                                 <div>
-                                  <img src="<%= product.imageUrl %>" alt="">
+                                  <img src="<%= p.product.imageUrl %>" alt="">
                                 </div>
                                 <div>
                                   <p>
-                                    <%= product.title %>
+                                    <%= p.product.title %>
                                   </p>
                                 </div>
+                                <div>
+                                  <p>Quantity: &nbsp;<%= p.quantity%>
+                                  </p>
+                                  <h4>
+                                    ₹&nbsp;<%= p.product.price %>
+                                  </h4>
+                                </div>
+                              </div>
 
-                              </div>
-                              <div>
-                                <p>Quantity: &nbsp;<%= product.quantity%>
-                                </p>
-                                <h4>
-                                  ₹&nbsp;<%= product.price %>
-                                </h4>
-                              </div>
 
 
                             </li>

@@ -19,10 +19,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 router.get("/", getIndexPage);
 router.get("/products", fetchProducts);
 router.get("/products/:productId", fetchProductDetails);
-// router.get("/cart", getCartDetails);
+router.get("/cart", getCartDetails);
 router.post("/cart", postCart);
-// router.get("/orders", getOrderDetails);
-// router.post("/cart-delete-item", deleteProductFromCart);
-// router.post("/create-order", postOrder);
+router.get("/orders", getOrderDetails);
+router.post("/cart-delete-item", deleteProductFromCart);
+router.post("/create-order", postOrder);
 
 export default router;

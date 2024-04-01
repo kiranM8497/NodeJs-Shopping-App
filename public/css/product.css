@@ -9,7 +9,7 @@
   background-color: rgb(194, 97, 194);
 }
 
-li {
+.navbar ul li {
   list-style: none;
   padding: 0.5rem;
   font-weight: 800;
@@ -21,17 +21,36 @@ li {
   color: red;
 }
 
-ul {
+.navbar {
   display: flex;
   margin-left: 1rem;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   font-size: larger;
+  flex-direction: row;
 }
 
-a {
+.navbar ul {
+  display: flex;
+
+}
+
+.navbar ul li a {
   text-decoration: none;
 }
+
+.main-header__item-list {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  padding: 0;
+}
+
+.main-header__item {
+  margin-right: 0.5rem;
+}
+
+
 
 .main {
   display: flex;
