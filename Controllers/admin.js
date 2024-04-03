@@ -5,6 +5,7 @@ const getAddProduct = (req, res, next) => {
     title: "Add-product",
     path: "/admin/add-product",
     editing: false,
+    isAuthenticated: req.isLoggedIn,
   });
 };
 
@@ -75,12 +76,14 @@ const getEditProduct = (req, res, next) => {
         path: "/admin/edit-product",
         editing: editMode,
         product: product,
+        isAuthenticated: req.isLoggedIn,
       });
     })
     .catch((err) => console.log(err));
 };
 
 const getProducts = (req, res, next) => {
+  console.log("focu", req.isLoggedIn);
   Product.find()
     // .populate("userId") // fetching user object  userid to populate related field adn related data
     // .populate("userId", "email") //specifially asking to ftech only name
@@ -91,6 +94,7 @@ const getProducts = (req, res, next) => {
         path: "/admin/products",
         title: "Products",
         products: products,
+        isAuthenticated: req.isLoggedIn,
       });
     })
     .catch((err) => console.log(err));

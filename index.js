@@ -6,9 +6,10 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import { router } from "./routes/admin.js";
-import { authRoutes } from "./routes/auth.js";
+import { router as authRoutes } from "./routes/auth.js";
 import { handleError } from "./Controllers/error.js";
 import User from "./models/user.js";
+// import cookieParser from "cookie-parser";
 
 import mongoose from "mongoose";
 
@@ -34,15 +35,16 @@ app.use((req, res, next) => {
       //adding user to req
       //keep in mind this user is an full mongoose model
       //ao we can call every model functions on it;
+
       req.user = user;
       next();
     })
     .catch((err) => console.log(err)); // 1 is the id of admin user
 });
-
-app.use(authRoutes);
+// app.use(cookieParser());
 app.use(`/admin`, router);
 app.use(shopRoutes);
+app.use(authRoutes);
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(handleError);

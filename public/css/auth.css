@@ -1,0 +1,20 @@
+.login-form {
+  width: 500px;
+  border: 2px solid black;
+  margin: 0 auto;
+  margin-top: 200px;
+  background-color: cornsilk;
+
+}
+
+.product-form {
+  width: 90%;
+  margin: 0 auto;
+  height: 250px;
+}
+
+#email,
+#password {
+  background-color: white;
+
+}

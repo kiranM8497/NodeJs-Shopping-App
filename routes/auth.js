@@ -1,7 +1,9 @@
 import express from "express";
-import getLogin from "../Controllers/auth";
+import { getLogin, postLogin } from "../Controllers/auth.js";
+
 const router = express.Router();
 
-router.get("/Login", getLogin);
+router.get("/login", getLogin);
+router.post("/login", postLogin);
 
 export { router };
