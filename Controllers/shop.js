@@ -8,7 +8,6 @@ const fetchProducts = (req, res, next) => {
         products: products,
         title: "All products",
         path: "/products",
-        isAuthenticated: req.LoggedIn,
       });
     })
     .catch((err) => console.log(err));
@@ -23,7 +22,6 @@ const fetchProductDetails = (req, res, next) => {
         title: product.title,
         product: product,
         path: "/products",
-        isAuthenticated: req.isLoggedIn,
       });
     })
     .catch((err) => console.log(err));
@@ -36,7 +34,6 @@ const getIndexPage = (req, res, next) => {
         products: products,
         title: "Shop",
         path: "/",
-        isAuthenticated: req.isLoggedIn,
       });
     })
     .catch((err) => console.log(err));
@@ -52,7 +49,6 @@ const getCartDetails = (req, res, next) => {
         path: "/cart",
         title: "Your Cart",
         products: products,
-        isAuthenticated: req.isLoggedIn,
       });
     })
     .catch((err) => console.log(err));
@@ -83,7 +79,6 @@ const postOrder = (req, res, next) => {
   req.user
     .populate("cart.items.productId")
     .then((user) => {
-      console.log(user.cart.items);
       const products = user.cart.items.map((i) => {
         return {
           quantity: i.quantity,
@@ -92,7 +87,7 @@ const postOrder = (req, res, next) => {
       });
       const order = new Order({
         user: {
-          name: req.user.name,
+          email: req.user.email,
           userId: req.user,
         },
         products: products,
@@ -118,7 +113,6 @@ const getOrderDetails = (req, res, next) => {
         path: "/orders",
         title: "Your Orders",
         orders: orders,
-        isAuthenticated: req.isLoggedIn,
       });
     })
     .catch((err) => console.log(err));

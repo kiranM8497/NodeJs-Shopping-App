@@ -86,6 +86,19 @@ a {
   background-color: white;
 }
 
+.logout-btn {
+  width: 4.5rem;
+  border: none !important;
+  /* margin-left: 2rem; */
+  /* height: 20px; */
+  color: #551A8B;
+  font-size: 15px;
+  font-weight: 700;
+  /* border-radius: 4px; */
+  background-color: rgb(194, 97, 194) !important;
+  cursor: pointer;
+}
+
 .form_btn {
   width: 10rem;
   cursor: pointer;

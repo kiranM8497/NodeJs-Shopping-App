@@ -113,7 +113,7 @@
   /* Set image width to 100% of its container */
   aspect-ratio: 1 /1;
   /* Set aspect ratio to 16:9 (or any desired aspect ratio) */
-  object-fit: fill;
+  object-fit: contain;
   /* Ensure the image covers the container, cropping if necessary */
 }
 
@@ -175,7 +175,6 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
   justify-content: space-around;
 }
 
@@ -183,10 +182,13 @@
 .cart-list-item {
   display: flex;
   width: 450px !important;
-  height: fit-content;
+  height: 100px;
   border: 1px solid gray;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1.5rem 0;
+  justify-content: center;
+  align-items: center;
+
 
 }
 
@@ -276,7 +278,7 @@
 
 .inner-container {
   width: full;
-  height: 270px;
+  height: fit-content;
 
 }
 
@@ -296,4 +298,30 @@
   aspect-ratio: 1/1;
   object-fit: fill;
 
+}
+
+/* error message */
+.user-message {
+  margin: auto;
+  width: 90%;
+  border: 1px solid #4771fa;
+  padding: 1rem;
+  border-radius: 3px;
+  background: #b9c9ff;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+
+.user-message--error {
+  color: red;
+  border-color: red;
+  background: rgb(249, 200, 200);
+}
+
+
+@media (min-width: 768px) {
+  .user-message {
+    width: 30rem;
+  }
 }

@@ -41,6 +41,7 @@
             <%if(editing) {%>
               <input type="hidden" value="<%= product._id%>" name="productId" />
               <%}%>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                 <button class="btn form_btn" type="submit">
                   <%if(editing){%>Update product<%}else{ %>Add Product<%}%>

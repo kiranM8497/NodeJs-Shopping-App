@@ -12,6 +12,7 @@ import {
   deleteProductFromCart,
   postOrder,
 } from "../Controllers/shop.js";
+import { authentication } from "../middleware/is-auth.js";
 
 const router = express.Router();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -19,10 +20,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 router.get("/", getIndexPage);
 router.get("/products", fetchProducts);
 router.get("/products/:productId", fetchProductDetails);
-router.get("/cart", getCartDetails);
-router.post("/cart", postCart);
-router.get("/orders", getOrderDetails);
-router.post("/cart-delete-item", deleteProductFromCart);
-router.post("/create-order", postOrder);
+router.get("/cart", authentication, getCartDetails);
+router.post("/cart", authentication, postCart);
+router.get("/orders", authentication, getOrderDetails);
+router.post("/cart-delete-item", authentication, deleteProductFromCart);
+router.post("/create-order", authentication, postOrder);
 
 export default router;

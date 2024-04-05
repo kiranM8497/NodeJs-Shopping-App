@@ -5,7 +5,6 @@ const getAddProduct = (req, res, next) => {
     title: "Add-product",
     path: "/admin/add-product",
     editing: false,
-    isAuthenticated: req.isLoggedIn,
   });
 };
 
@@ -24,7 +23,7 @@ const postAddProduct = (req, res, next) => {
       console.log("product is created");
       res.redirect("/admin/products");
     })
-    .catch((err) => console.log("see err", err));
+    .catch((err) => console.log(err));
 };
 
 const postEditProduct = (req, res, next) => {
@@ -71,30 +70,28 @@ const getEditProduct = (req, res, next) => {
       if (!product) {
         return res.redirect("/");
       }
+
       res.render("admin/edit-product", {
         title: "Edit-product",
         path: "/admin/edit-product",
         editing: editMode,
         product: product,
-        isAuthenticated: req.isLoggedIn,
       });
     })
     .catch((err) => console.log(err));
 };
 
 const getProducts = (req, res, next) => {
-  console.log("focu", req.isLoggedIn);
   Product.find()
     // .populate("userId") // fetching user object  userid to populate related field adn related data
     // .populate("userId", "email") //specifially asking to ftech only name
     // .select(" title price desciption -_id")  // excluding _id from the result ad controlling which fields are returned
     .then((products) => {
-      console.log(products);
+      // console.log(products);
       res.render("admin/products.ejs", {
         path: "/admin/products",
         title: "Products",
         products: products,
-        isAuthenticated: req.isLoggedIn,
       });
     })
     .catch((err) => console.log(err));

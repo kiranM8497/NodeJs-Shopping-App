@@ -10,15 +10,17 @@ import {
   postEditProduct,
   deleteProduct,
 } from "../Controllers/admin.js";
+import { authentication } from "../middleware/is-auth.js";
+
 const router = express.Router();
 
-router.get("/add-product", getAddProduct);
+router.get("/add-product", authentication, getAddProduct);
 
-router.get("/products", getProducts);
+router.get("/products", authentication, getProducts);
 
-router.post("/add-product", postAddProduct);
-router.get("/edit-product/:productId", getEditProduct);
-router.post("/edit-product", postEditProduct);
-router.post("/delete-product", deleteProduct);
+router.post("/add-product", authentication, postAddProduct);
+router.get("/edit-product/:productId", authentication, getEditProduct);
+router.post("/edit-product", authentication, postEditProduct);
+router.post("/delete-product", authentication, deleteProduct);
 
 export { router };
