@@ -32,17 +32,20 @@ const postEditProduct = (req, res, next) => {
 
   Product.findById(prodId)
     .then((product) => {
+      if (product.userId.toString() !== req.user._id.toString()) {
+        return res.redirect("/");
+      }
       product.title = title;
       product.price = price;
       product.description = description;
       product.imageUrl = imageUrl;
 
-      return product.save();
+      return product.save().then((result) => {
+        console.log("Updated!");
+        res.redirect("/admin/products");
+      });
     })
-    .then((result) => {
-      console.log("Updated!");
-      res.redirect("/admin/products");
-    })
+
     .catch((err) => {
       console.log(err);
     });
@@ -51,7 +54,7 @@ const postEditProduct = (req, res, next) => {
 const deleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
 
-  Product.findByIdAndDelete(prodId)
+  Product.deleteOne({ _id: prodId, userId: req.user._id })
     .then((result) => {
       res.redirect("/admin/products");
     })
@@ -82,7 +85,7 @@ const getEditProduct = (req, res, next) => {
 };
 
 const getProducts = (req, res, next) => {
-  Product.find()
+  Product.find({ userId: req.user._id })
     // .populate("userId") // fetching user object  userid to populate related field adn related data
     // .populate("userId", "email") //specifially asking to ftech only name
     // .select(" title price desciption -_id")  // excluding _id from the result ad controlling which fields are returned

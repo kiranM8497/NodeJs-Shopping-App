@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
-  
   email: {
     type: String,
     required: true,
@@ -11,6 +10,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  resetToken: String,
+  expireToken: Date,
   cart: {
     items: [
       {
