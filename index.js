@@ -35,6 +35,7 @@ app.set("views", "views");
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.json());
 app.use(
   session({
     secret: "my secret",
