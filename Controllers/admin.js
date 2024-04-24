@@ -53,7 +53,7 @@ const postEditProduct = (req, res, next) => {
   const prodId = req.body.productId;
   //collecting errors by passing req to validationResult
   const errors = validationResult(req);
-  console.log(imageUrl);
+
   if (!errors.isEmpty()) {
     return res.status(422).render("admin/edit-product", {
       title: "Edit-product",
